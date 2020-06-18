@@ -4,7 +4,7 @@ library(shiny)
 ui <- pageWithSidebar(
   
   # App title ----
-  headerPanel("Miles Per Gallon"),
+  headerPanel("Generate inputs for stock assessment models"),
   
   # Sidebar panel for inputs ----
   sidebarPanel(),
