@@ -1,6 +1,20 @@
 library(shiny)
+inputs <- list(load("example.RData"))
+inputs <- inputs[[1]][-grep(".",inputs[[1]], fixed=TRUE)]
 
-inputs <-list("nyears","nseasons","minAge","maxAge","recType","growthType","mortType")
+
+traverse_objects <- function(x){
+  if(typeof(get(x))!="S4"){
+    return(get(x))
+  } else if(typeof(get(x))=="list"){
+    return(names(x))
+  }
+}
+
+
+in_list <- purrr::map(inputs, traverse_objects)
+names(in_list) <- inputs
+
 # Define UI for miles per gallon app ----
 ui <- fluidPage(
   
