@@ -1,43 +1,52 @@
 library(shiny)
-inputs <- jsonlite::read_json("mas_s1_config.json")
+config <- jsonlite::read_json("mas_s1_config.json")
 
-traverse_objects <- function(x){
-  
-  if(length(x)!=1){
-    traverse_objects(x)
-  } else {
-    return(x)
-  }
+inputTabServer <- function(id, inputType, listComponent){
+  moduleServer(
+    id,
+    function(input, output, session){
+      tabReturn <- reactive({
+       
+      })
+      return(tabReturn)
+    }
+  )
 }
 
+inputTabUI <- function(id, listComponent){
+  par <- div(id=paste(id,"div",sep=""))
+  for(i in seq_len(length(listComponent))){
+    if(length(listComponent[[i]])==1){
+      par <- shiny::tagAppendChild(par, textInput(inputId=paste(id,names(listComponent)[i],sep=""),
+                                                  label = names(listComponent)[i],
+                                                  value = listComponent[[i]]))
+    }
+  }
+  par
+}
 
 # Define UI for miles per gallon app ----
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("Generate inputs for stock assessment models"),
+  titlePanel("Generate config for stock assessment models"),
   
-  # Div panel for inputs ----
-  tabsetPanel(id="tabs", 
-              tabPanel("main",
-  par <- div(id="input"),
-  tablist <- vector("list"),
-    for(i in seq_len(length(inputs))){
-      if(length(inputs[[i]])==1){
-      par <- shiny::tagAppendChild(par, textInput(inputId=paste("input",i,sep=""),
-                                                  label = names(inputs)[i],
-                                                  value = inputs[[i]]))
-      } else{
-        tablist[[names(inputs)[i]]] <- tabPanel(names(inputs)[i],"hi")
-      }
-    },
-    par,
+  # Div panel for config ----
+  tabsetPanel(
+    tabPanel("main",inputTabUI("main",config)),
+    tabPanel("area", inputTabUI("area",config[["area"]])),
+    tabPanel("recruitment", inputTabUI("recruitment",config[["recruitment"]])),
+    tabPanel("growth", inputTabUI("growth",config[["growth"]])),
+    tabPanel("natural mortality", inputTabUI("natural_mortality",config[["natural_mortality"]])),
+    tabPanel("fishing mortality", inputTabUI("fishing_mortality",config[["fishing_mortality"]])),
+    tabPanel("selectivity", inputTabUI("selectivity",config[["selectivity"]])),
+    tabPanel("likelihood component", inputTabUI("likelihood_component",config[["likelihood_component"]])),
+    tabPanel("fleet", inputTabUI("fleet",config[["fleet"]])),
+    tabPanel("survey", inputTabUI("survey",config[["survey"]])),
+ 
   actionButton("submit", "Enter", class="btn-primary")
   ),
-  for(j in seq_len(length(tablist))){
-    insertTab(names(tablist)[j],"This is a tab")
-  }
-  ))
+  )
   # Main panel for displaying outputs ----
 
 # Define server logic to plot various variables against mpg ----

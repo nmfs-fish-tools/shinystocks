@@ -347,34 +347,6 @@
         "Built": "R 3.6.1; x86_64-w64-mingw32; 2019-12-16 20:15:49 UTC; windows"
       }
     },
-    "purrr": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "purrr",
-        "Title": "Functional Programming Tools",
-        "Version": "0.3.3",
-        "Authors@R": "c(\n    person(\"Lionel\", \"Henry\", , \"lionel@rstudio.com\", c(\"aut\", \"cre\")),\n    person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", \"aut\"),\n    person(\"RStudio\", role = c(\"cph\", \"fnd\"))\n    )",
-        "Description": "A complete and consistent functional programming toolkit for R.",
-        "License": "GPL-3 | file LICENSE",
-        "URL": "http://purrr.tidyverse.org, https://github.com/tidyverse/purrr",
-        "BugReports": "https://github.com/tidyverse/purrr/issues",
-        "Depends": "R (>= 3.2)",
-        "Imports": "magrittr (>= 1.5), rlang (>= 0.3.1)",
-        "Suggests": "covr, crayon, dplyr (>= 0.7.8), knitr, rmarkdown, testthat,\ntibble, tidyselect",
-        "VignetteBuilder": "knitr",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "6.1.1",
-        "NeedsCompilation": "yes",
-        "Packaged": "2019-10-17 08:02:23 UTC; lionel",
-        "Author": "Lionel Henry [aut, cre],\n  Hadley Wickham [aut],\n  RStudio [cph, fnd]",
-        "Maintainer": "Lionel Henry <lionel@rstudio.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2019-10-18 12:40:05 UTC",
-        "Built": "R 3.6.1; x86_64-w64-mingw32; 2019-12-16 18:30:45 UTC; windows"
-      }
-    },
     "rlang": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -484,10 +456,19 @@
   },
   "files": {
     "app.R": {
-      "checksum": "f66e93380a87014b07c45fb560c52249"
+      "checksum": "916e41f01143fb2c4b08a48237555ed2"
+    },
+    "app_orig.R": {
+      "checksum": "44120e92cba87f9c987d7383b58f9b06"
     },
     "example.RData": {
       "checksum": "97309402d0f4cc85ad52a210d5f29760"
+    },
+    "mas_s1_config.json": {
+      "checksum": "ae6216660962b76f0b082217ff36fb48"
+    },
+    "mas_s1_data.json": {
+      "checksum": "59df54f979720696ebcdb4b15ed01ea8"
     },
     "packrat/desc/BH": {
       "checksum": "05c8b268c8423d0975a86c210ee1c817"
@@ -522,9 +503,6 @@
     "packrat/desc/promises": {
       "checksum": "111606581943cdcc38362a75fc282913"
     },
-    "packrat/desc/purrr": {
-      "checksum": "4e930fcb6948d28e8c794071390addaa"
-    },
     "packrat/desc/R6": {
       "checksum": "2b2617d6a96fc95af07a1f55fdc39e2f"
     },
@@ -544,7 +522,7 @@
       "checksum": "f10aac8973237fc46947f08b976be9ea"
     },
     "packrat/packrat.lock": {
-      "checksum": "dc48ae2dd04dae05fadd74799012d203"
+      "checksum": "fbe11691fb1fe5339afd6106d9b09dc8"
     },
     "README.md": {
       "checksum": "48ee9c117f3e144cddb9ab414c727e35"
